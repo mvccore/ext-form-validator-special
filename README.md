@@ -11,10 +11,42 @@ MvcCore form extension with special text and numeric validators - company ID (EU
 composer require mvccore/ext-form-validator-special
 ```
 
-## Features
-
-## Examples
-- [**Example - CD Collection (mvccore/example-cdcol)**](https://github.com/mvccore/example-cdcol)
-- [**Application - Questionnaires (mvccore/app-questionnaires)**](https://github.com/mvccore/app-questionnaires)
-
 ## Basic Example
+```php
+$form = (new \MvcCore\Ext\Form($controller))
+	->SetId('demo')
+	->SetLocale('DE'); // for ZIP validator
+...
+$yourCreditCard = new \MvcCore\Ext\Forms\Fields\Number();
+$yourCreditCard
+	->SetName('your_credit_card')
+	->SetLabel('Your Credit Card Number:')
+	->SetValidators(
+		(new \MvcCore\Ext\Forms\Validators\CreditCard)
+			-> SetAllowedTypes(
+				\MvcCore\Ext\Forms\Validators\CreditCard::AMERICAN_EXPRESS,
+				\MvcCore\Ext\Forms\Validators\CreditCard::DISCOVER,
+				\MvcCore\Ext\Forms\Validators\CreditCard::MAESTRO,		
+				\MvcCore\Ext\Forms\Validators\CreditCard::MASTERCARD,
+				\MvcCore\Ext\Forms\Validators\CreditCard::VISA
+			)
+	);
+$yourIp = new \MvcCore\Ext\Forms\Fields\Text([
+	'name'		=> 'your_ip',
+	'label'		=> 'Your IP Address:',
+	'validators'	=> [
+		new \MvcCore\Ext\Forms\Validators\Ip([
+			'allowIPv4HexFormat'	=> FALSE,
+			'allowIPv4BinaryFormat'	=> FALSE,
+			'allowIPv6Literals'		=> TRUE,
+		])
+	],
+]);
+$yourZipCode = new \MvcCore\Ext\Forms\Fields\Text([
+	'name'		=> 'your_zip_code',
+	'label'		=> 'Your ZIP code:',
+	'validators'	=> ['ZipCode'],
+]);
+...
+$form->AddFields($yourCreditCard, $yourIp, $yourZipCode);
+```
