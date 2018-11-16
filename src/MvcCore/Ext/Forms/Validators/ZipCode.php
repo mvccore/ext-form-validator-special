@@ -42,7 +42,7 @@ class ZipCode extends \MvcCore\Ext\Forms\Validator
 
 	/**
 	 * All configured validators as key/value array.
-	 * Keys are locale codes and values are regexp match pattern strings or `callable`s.
+	 * Keys are locale codes and values are regular expression match pattern strings or `callable`s.
 	 * @var array
 	 */
 	protected static $validators = [];
@@ -252,7 +252,7 @@ class ZipCode extends \MvcCore\Ext\Forms\Validator
 			return $this->throwNewInvalidArgumentException(
 				'Unable to validate ZIP code without configured '
 				.'form `locale` property. Use `$form->SetLocale(\'[A-Z]{2}\');` '
-				.'to internaly create proper ZIP code validator.'
+				.'to internally create proper ZIP code validator.'
 			);
 		} else {
 			$validators = static::GetValidators();
@@ -283,7 +283,7 @@ class ZipCode extends \MvcCore\Ext\Forms\Validator
 	}
 
 	/**
-	 * Validate ZIP code by regexp match pattern. Return if matches and safe ZIP code value.
+	 * Validate ZIP code by regular expression match pattern. Return if matches and safe ZIP code value.
 	 * @param string $zip Raw submitted value.
 	 * @param string $regExpMatch Regep match pattern without border characters (`#^$/`).
 	 * @param string $localeCode Form locale upper case code.

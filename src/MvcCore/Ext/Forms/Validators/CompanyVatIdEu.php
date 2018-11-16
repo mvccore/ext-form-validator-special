@@ -24,13 +24,13 @@ namespace MvcCore\Ext\Forms\Validators;
 class CompanyVatIdEu extends \MvcCore\Ext\Forms\Validator
 {
 	/**
-	 * Main SOAP uri to EU VEIS system.
+	 * Main SOAP URL to EU VEIS system.
 	 * @see http://ec.europa.eu/taxation_customs/vies/
 	 */
 	const SOAP_URL = 'http://ec.europa.eu/taxation_customs/vies/checkVatService.wsdl';
 
 	/**
-	 * Backup GET request uri to EU VEIS system if `\SoapClient` PHP class doesn't exist.
+	 * Backup GET request URL to EU VEIS system if `\SoapClient` PHP class doesn't exist.
 	 * @see http://ec.europa.eu/taxation_customs/vies/
 	 */
 	const GET_URL = 'http://ec.europa.eu/taxation_customs/vies/vatResponse.html?&action=check&check=Verify&memberStateCode={0}&number={1}';
@@ -64,7 +64,7 @@ class CompanyVatIdEu extends \MvcCore\Ext\Forms\Validator
 			return $this->throwNewInvalidArgumentException(
 				'Unable to validate ZIP code without configured '
 				.'form `locale` property. Use `$form->SetLocale(\'[A-Z]{2}\');` '
-				.'to internaly create proper ZIP code validator.'
+				.'to internally create proper ZIP code validator.'
 			);
 		} else {
 			// remove all chars except: 'a-zA-Z0-9', spaces, dots and '-'

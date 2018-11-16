@@ -44,12 +44,12 @@ class CompanyIdEu extends \MvcCore\Ext\Forms\Validator
 
 	/**
 	 * EU company IDs validators.
-	 * Array of regexp match patterns to check company ID.
-	 * Keys are locale code strings and values are regexp `match 
-	 * pattern strings`, `array` with regexp `match pattern strings`, 
+	 * Array of regular expression match patterns to check company ID.
+	 * Keys are locale code strings and values are regular expression `match 
+	 * pattern strings`, `array` with regular expression `match pattern strings`, 
 	 * always without border characters (`#^$/`) or `callable`.
-	 * If item is array of regexp match patterns, company ID is
-	 * checked continuously until moment, when any regexp pattern
+	 * If item is array of regular expression match patterns, company ID is
+	 * checked continuously until moment, when any regular expression pattern
 	 * finaly match company ID. If item is `callable`,
 	 * company ID is checked by calling the function
 	 * with fist param to be company ID. Closure function has
@@ -62,7 +62,7 @@ class CompanyIdEu extends \MvcCore\Ext\Forms\Validator
 
 	/**
 	 * Set specific locale validator for company ID.
-	 * It could be regexp match pattern string without border characters (`#^$/`)
+	 * It could be regular expression match pattern string without border characters (`#^$/`)
 	 * or `callable` accepting first argument to be raw submitted value and 
 	 * returning array with success and with safe company ID value.
 	 * @param string $localeCode Locale code, automatically converted to upper case.
@@ -76,8 +76,8 @@ class CompanyIdEu extends \MvcCore\Ext\Forms\Validator
 
 	/**
 	 * Get all preconfigured validators as key/value array.
-	 * Keys are locale codes and values are regexp match 
-	 * pattern strings or array with regexp match 
+	 * Keys are locale codes and values are regular expression match 
+	 * pattern strings or array with regular expression match 
 	 * pattern strings or `callable`s.
 	 * @return array
 	 */
@@ -168,7 +168,7 @@ class CompanyIdEu extends \MvcCore\Ext\Forms\Validator
 			return $this->throwNewInvalidArgumentException(
 				'Unable to validate company ID without configured '
 				.'form `locale` property. Use `$form->SetLocale(\'[A-Z]{2}\');` '
-				.'to internaly create proper company ID validator.'
+				.'to internally create proper company ID validator.'
 			);
 		} else {
 			$formLocale = strtoupper($formLocale);
@@ -209,7 +209,7 @@ class CompanyIdEu extends \MvcCore\Ext\Forms\Validator
 	}
 
 	/**
-	 * Validate company ID by regexp match pattern. Return if matches and safe company id value.
+	 * Validate company ID by regular expression match pattern. Return if matches and safe company id value.
 	 * @param string $submittedValue Raw submitted value.
 	 * @param string $regExpMatch Regep match pattern without border characters (`#^$/`).
 	 * @param string $localeCode Form locale upper case code.
