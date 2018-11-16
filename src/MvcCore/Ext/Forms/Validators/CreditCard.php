@@ -128,7 +128,7 @@ class CreditCard extends \MvcCore\Ext\Forms\Validator
 
 	/**
 	 * Allowed credit card types. If no allowed credit card types defined, 
-	 * then all credit card types are allowed automaticly.
+	 * then all credit card types are allowed automatically.
 	 * Array of string constants like: `\MvcCore\Ext\Forms\Validators\CreditCard::VISA ...`.
 	 * @var \string[]
 	 */
@@ -148,7 +148,7 @@ class CreditCard extends \MvcCore\Ext\Forms\Validator
 
 	/**
 	 * Get allowed credit card types. If no allowed credit card types defined, 
-	 * then all credit card types are allowed automaticly.
+	 * then all credit card types are allowed automatically.
 	 * @return \string[]
 	 */
 	public function & GetAllowedTypes () {
@@ -157,7 +157,7 @@ class CreditCard extends \MvcCore\Ext\Forms\Validator
 	
 	/**
 	 * Set multiple allowed credit card types. If no allowed credit card types defined, 
-	 * then all credit card types are allowed automaticly.
+	 * then all credit card types are allowed automatically.
 	 * This function is dangerous, because it removes all previously defined credit card types to allow.
 	 * If you only add another credit card type, use: `$validator->AddAllowedTypes();` instead.
 	 * Example: `$validator->SetAllowedTypes(\MvcCore\Ext\Forms\Validators\CreditCard::VISA, ...);`
@@ -173,7 +173,7 @@ class CreditCard extends \MvcCore\Ext\Forms\Validator
 	
 	/**
 	 * Add multiple allowed credit card types. If no allowed credit card types defined, 
-	 * then all credit card types are allowed automaticly.
+	 * then all credit card types are allowed automatically.
 	 * Example: `$validator->AddAllowedTypes(\MvcCore\Ext\Forms\Validators\CreditCard::VISA, ...);`
 	 * @param \string[] $allowedTypes,... Allowed credit card types from `\MvcCore\Ext\Forms\Validators\CreditCard::$cardTypes`.
 	 * @return \MvcCore\Ext\Forms\Validators\CreditCard
@@ -186,7 +186,7 @@ class CreditCard extends \MvcCore\Ext\Forms\Validator
 	
 	/**
 	 * Add allowed credit card type. If no allowed credit card types defined, 
-	 * then all credit card types are allowed automaticly.
+	 * then all credit card types are allowed automatically.
 	 * Example: `$validator->AddAllowedType(\MvcCore\Ext\Forms\Validators\CreditCard::VISA);`
 	 * @param string $allowedType Allowed credit card type from `\MvcCore\Ext\Forms\Validators\CreditCard::$cardTypes`.
 	 * @return \MvcCore\Ext\Forms\Validators\CreditCard
@@ -297,7 +297,7 @@ class CreditCard extends \MvcCore\Ext\Forms\Validator
 			return NULL;
 		}
 		$length = strlen($rawSubmittedValue);
-		// if no allowed type has been configured, all types are automaticly allowed
+		// if no allowed type has been configured, all types are automatically allowed
 		$allowedTypes  = $this->allowedTypes  
 			? $this->allowedTypes 
 			: static::$cardTypes;

@@ -65,7 +65,7 @@ class CompanyIdEu extends \MvcCore\Ext\Forms\Validator
 	 * It could be regexp match pattern string without border characters (`#^$/`)
 	 * or `callable` accepting first argument to be raw submitted value and 
 	 * returning array with success and with safe company ID value.
-	 * @param string $localeCode Locale code, automaticly converted to upper case.
+	 * @param string $localeCode Locale code, automatically converted to upper case.
 	 * @param string|callable $regExpMatchOrCallable Reg exp match pattern string with or without border characters or `callable`.
 	 * @return string|callable
 	 */
@@ -212,7 +212,7 @@ class CompanyIdEu extends \MvcCore\Ext\Forms\Validator
 	 * Validate company ID by regexp match pattern. Return if matches and safe company id value.
 	 * @param string $submittedValue Raw submitted value.
 	 * @param string $regExpMatch Regep match pattern without border characters (`#^$/`).
-	 * @param string $localeCode Form locale uppercase code.
+	 * @param string $localeCode Form locale upper case code.
 	 * @return array Array with success and safe company id value.
 	 */
 	protected function validateCompanyIdByRegExp ($submittedValue, $regExpMatch, $localeCode) {

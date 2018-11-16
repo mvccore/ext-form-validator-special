@@ -52,7 +52,7 @@ class ZipCode extends \MvcCore\Ext\Forms\Validator
 	 * It could be `regexp match pattern string` without border characters (`#^$/`)
 	 * or `callable` accepting first argument to be raw submitted value and 
 	 * returning array with success and with safe ZIP code value.
-	 * @param string $localeCode Locale code, automaticly converted to upper case.
+	 * @param string $localeCode Locale code, automatically converted to upper case.
 	 * @param string|callable $regExpMatchOrCallable `Regexp match pattern string` without border characters (`#^$/`) or `callable`.
 	 * @return string|callable
 	 */
@@ -286,7 +286,7 @@ class ZipCode extends \MvcCore\Ext\Forms\Validator
 	 * Validate ZIP code by regexp match pattern. Return if matches and safe ZIP code value.
 	 * @param string $zip Raw submitted value.
 	 * @param string $regExpMatch Regep match pattern without border characters (`#^$/`).
-	 * @param string $localeCode Form locale uppercase code.
+	 * @param string $localeCode Form locale upper case code.
 	 * @return array Array with success and safe ZIP code value.
 	 */
 	protected function validateZipByRegExp ($zip, $regExpMatch, $localeCode) {
