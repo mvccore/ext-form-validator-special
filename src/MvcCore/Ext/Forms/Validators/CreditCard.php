@@ -226,7 +226,7 @@ class CreditCard extends \MvcCore\Ext\Forms\Validator
 	 * instance and third argument configured allowed credit card types strings array 
 	 * (if empty array, all types allowed). `Callable` has to return safe 
 	 * user input value or `NULL` if value is not allowed.
-	 * @param \callable[] $externalValidationCallbacks,... `Callables accepting as first argument raw user input, second argument as `\MvcCore\Ext\forms\IField` instance and third argument configured allowed credit card types strings array (if empty array, all types allowed). `Callable` has to return safe user input value or `NULL` if value is not allowed.
+	 * @param \callable[] $externalValidationCallbacks,... `callable`(s) accepting as first argument raw user input, second argument as `\MvcCore\Ext\forms\IField` instance and third argument configured allowed credit card types strings array (if empty array, all types allowed). `callable` has to return safe user input value or `NULL` if value is not allowed.
 	 * @return \MvcCore\Ext\Forms\Validators\CreditCard
 	 */
 	public function & SetExternalValidationCallbacks (/*...$externalValidationCallbacks*/) {
@@ -244,7 +244,7 @@ class CreditCard extends \MvcCore\Ext\Forms\Validator
 	 * instance and third argument configured allowed credit card types strings array 
 	 * (if empty array, all types allowed). `Callable` has to return safe 
 	 * user input value or `NULL` if value is not allowed.
-	 * @param \callable[] $externalValidationCallbacks,... `Callables accepting as first argument raw user input, second argument as `\MvcCore\Ext\forms\IField` instance and third argument configured allowed credit card types strings array (if empty array, all types allowed). `Callable` has to return safe user input value or `NULL` if value is not allowed.
+	 * @param \callable[] $externalValidationCallbacks,... `callable`(s) accepting as first argument raw user input, second argument as `\MvcCore\Ext\forms\IField` instance and third argument configured allowed credit card types strings array (if empty array, all types allowed). `callable` has to return safe user input value or `NULL` if value is not allowed.
 	 * @return \MvcCore\Ext\Forms\Validators\CreditCard
 	 */
 	public function & AddExternalValidationCallbacks (/*...$externalValidationCallbacks*/) {

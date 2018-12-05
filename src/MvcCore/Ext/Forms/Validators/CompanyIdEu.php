@@ -50,7 +50,7 @@ class CompanyIdEu extends \MvcCore\Ext\Forms\Validator
 	 * always without border characters (`#^$/`) or `callable`.
 	 * If item is array of regular expression match patterns, company ID is
 	 * checked continuously until moment, when any regular expression pattern
-	 * finaly match company ID. If item is `callable`,
+	 * finally match company ID. If item is `callable`,
 	 * company ID is checked by calling the function
 	 * with fist param to be company ID. Closure function has
 	 * to return array with success and with safe company ID value.
@@ -143,6 +143,7 @@ class CompanyIdEu extends \MvcCore\Ext\Forms\Validator
 			'SK'=> '([1-9]\d[(2-4)|(6-9)]\d{7})',	// Slovak republic
 			'SE'=> '\d{10}01',						// Sweden
 		];
+		return self::$validators;
 	}
 
 	/**

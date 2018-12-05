@@ -36,7 +36,7 @@ class Hex extends \MvcCore\Ext\Forms\Validator
 	/**
 	 * Validate raw user input for character(s) representing a hexadecimal digit.
 	 * @see http://php.net/manual/en/function.ctype-xdigit.php
-	 * @param string|array			$rawSubmittedValue
+	 * @param string|array	$rawSubmittedValue
 	 * @return string|NULL	Safe submitted value or `NULL` if not possible to return safe value.
 	 */
 	public function Validate ($rawSubmittedValue) {
