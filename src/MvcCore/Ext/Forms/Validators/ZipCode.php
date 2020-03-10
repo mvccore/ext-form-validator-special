@@ -67,7 +67,8 @@ class ZipCode extends \MvcCore\Ext\Forms\Validator
 	 * @return array
 	 */
 	public static function & GetValidators () {
-		if (static::$validators) return static::$validators;
+		if (static::$validators) 
+			return static::$validators;
 		$a = '\d{3}'; // 3 digits pattern
 		$b = '\d{4}'; // 4 digits pattern
 		$c = '\d{5}'; // 5 digits pattern
@@ -255,7 +256,7 @@ class ZipCode extends \MvcCore\Ext\Forms\Validator
 				.'to internally create proper ZIP code validator.'
 			);
 		} else {
-			$validators = static::GetValidators();
+			$validators = & static::GetValidators();
 			if (!isset($validators[$formLocale])) {
 				$this->field->AddValidationError(
 					static::GetErrorMessage(self::ERROR_NOT_SUPPORTED),

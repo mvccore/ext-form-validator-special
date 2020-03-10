@@ -120,7 +120,7 @@ class Iban extends \MvcCore\Ext\Forms\Validator
 	 * @param  bool $allowNonSepa
 	 * @return \MvcCore\Ext\Forms\Validators\Iban
 	 */
-	public function & SetAllowNonSepa ($allowNonSepa) {
+	public function SetAllowNonSepa ($allowNonSepa) {
 		$this->allowNonSepa = (bool) $allowNonSepa;
 		return $this;
 	}

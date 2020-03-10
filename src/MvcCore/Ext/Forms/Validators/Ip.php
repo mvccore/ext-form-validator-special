@@ -84,7 +84,7 @@ class Ip extends \MvcCore\Ext\Forms\Validator
 	 * @param bool $allowIPv4OctetFormat
 	 * @return \MvcCore\Ext\Forms\Validators\Ip
 	 */
-	public function & SetAllowIPv4OctetFormat ($allowIPv4OctetFormat = TRUE) {
+	public function SetAllowIPv4OctetFormat ($allowIPv4OctetFormat = TRUE) {
 		$this->allowIPv4OctetFormat = $allowIPv4OctetFormat;
 		return $this;
 	}
@@ -104,7 +104,7 @@ class Ip extends \MvcCore\Ext\Forms\Validator
 	 * @param bool $allowIPv4HexFormat
 	 * @return \MvcCore\Ext\Forms\Validators\Ip
 	 */
-	public function & SetAllowIPv4HexFormat ($allowIPv4HexFormat = TRUE) {
+	public function SetAllowIPv4HexFormat ($allowIPv4HexFormat = TRUE) {
 		$this->allowIPv4HexFormat = $allowIPv4HexFormat;
 		return $this;
 	}
@@ -126,7 +126,7 @@ class Ip extends \MvcCore\Ext\Forms\Validator
 	 * @param bool $allowIPv4BinaryFormat
 	 * @return \MvcCore\Ext\Forms\Validators\Ip
 	 */
-	public function & SetAllowIPv4BinaryFormat ($allowIPv4BinaryFormat = TRUE) {
+	public function SetAllowIPv4BinaryFormat ($allowIPv4BinaryFormat = TRUE) {
 		$this->allowIPv4BinaryFormat = $allowIPv4BinaryFormat;
 		return $this;
 	}
@@ -146,7 +146,7 @@ class Ip extends \MvcCore\Ext\Forms\Validator
 	 * @param bool $allowIPv6
 	 * @return \MvcCore\Ext\Forms\Validators\Ip
 	 */
-	public function & SetAllowIPv6 ($allowIPv6 = TRUE) {
+	public function SetAllowIPv6 ($allowIPv6 = TRUE) {
 		$this->allowIPv6 = $allowIPv6;
 		return $this;
 	}
@@ -168,7 +168,7 @@ class Ip extends \MvcCore\Ext\Forms\Validator
 	 * @param bool $allowIPv6Literals
 	 * @return \MvcCore\Ext\Forms\Validators\Ip
 	 */
-	public function & SetAllowIPv6Literals ($allowIPv6Literals = TRUE) {
+	public function SetAllowIPv6Literals ($allowIPv6Literals = TRUE) {
 		$this->allowIPv6Literals = $allowIPv6Literals;
 		return $this;
 	}

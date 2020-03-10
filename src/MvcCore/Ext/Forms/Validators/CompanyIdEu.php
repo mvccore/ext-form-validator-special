@@ -14,11 +14,11 @@
 namespace MvcCore\Ext\Forms\Validators;
 
 /**
- * Responsibility: Validate company ID for EU states by regular expression(s)  
+ * Responsibility: Validate company ID for EU states by regular expression(s)
  *				   or by closure function(s).
- *				    - DO NOT USE ANY ADVANCED CONSTRUCTIONS for validations, 
+ *				    - DO NOT USE ANY ADVANCED CONSTRUCTIONS for validations,
  *				      because there are lot of checking exceptions!
- *					- Return from `Validate()` function safe submitted value or 
+ *					- Return from `Validate()` function safe submitted value or
  *					  `NULL` if there is not possible to return safe value.
  * @see https://en.wikipedia.org/wiki/VAT_identification_number
  * @see http://studylib.net/doc/7254793/vat-number-construction-rules
@@ -45,8 +45,8 @@ class CompanyIdEu extends \MvcCore\Ext\Forms\Validator
 	/**
 	 * EU company IDs validators.
 	 * Array of regular expression match patterns to check company ID.
-	 * Keys are locale code strings and values are regular expression `match 
-	 * pattern strings`, `array` with regular expression `match pattern strings`, 
+	 * Keys are locale code strings and values are regular expression `match
+	 * pattern strings`, `array` with regular expression `match pattern strings`,
 	 * always without border characters (`#^$/`) or `callable`.
 	 * If item is array of regular expression match patterns, company ID is
 	 * checked continuously until moment, when any regular expression pattern
@@ -63,7 +63,7 @@ class CompanyIdEu extends \MvcCore\Ext\Forms\Validator
 	/**
 	 * Set specific locale validator for company ID.
 	 * It could be regular expression match pattern string without border characters (`#^$/`)
-	 * or `callable` accepting first argument to be raw submitted value and 
+	 * or `callable` accepting first argument to be raw submitted value and
 	 * returning array with success and with safe company ID value.
 	 * @param string $localeCode Locale code, automatically converted to upper case.
 	 * @param string|callable $regExpMatchOrCallable Reg exp match pattern string with or without border characters or `callable`.
@@ -76,13 +76,15 @@ class CompanyIdEu extends \MvcCore\Ext\Forms\Validator
 
 	/**
 	 * Get all preconfigured validators as key/value array.
-	 * Keys are locale codes and values are regular expression match 
-	 * pattern strings or array with regular expression match 
+	 * Keys are locale codes and values are regular expression match
+	 * pattern strings or array with regular expression match
 	 * pattern strings or `callable`s.
 	 * @return array
 	 */
 	public static function & GetValidators () {
-		self::$validators = [
+		if (static::$validators)
+			return static::$validators;
+		static::$validators = [
 			'AT'=> 'U(\d{8})',						// Austria
 			'BE'=> function ($id) {					// Belgium
 				$id = trim(preg_replace('#[^A-Z0-9]#', '', $id));
@@ -143,7 +145,7 @@ class CompanyIdEu extends \MvcCore\Ext\Forms\Validator
 			'SK'=> '([1-9]\d[(2-4)|(6-9)]\d{7})',	// Slovak republic
 			'SE'=> '\d{10}01',						// Sweden
 		];
-		return self::$validators;
+		return static::$validators;
 	}
 
 	/**
@@ -173,7 +175,7 @@ class CompanyIdEu extends \MvcCore\Ext\Forms\Validator
 			);
 		} else {
 			$formLocale = strtoupper($formLocale);
-			$validators = static::GetValidators();
+			$validators = & static::GetValidators();
 			if (!isset($validators[$formLocale])) {
 				$this->field->AddValidationError(
 					'Company ID validation not supported (field `{0}`, locale: `{1}`).',
@@ -224,7 +226,7 @@ class CompanyIdEu extends \MvcCore\Ext\Forms\Validator
 				[$regExpMatch]
 			);
 		}
-		if ($matched) 
+		if ($matched)
 			return [$matched, $submittedValue];
 		return [FALSE, NULL];
 	}

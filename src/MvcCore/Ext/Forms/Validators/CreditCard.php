@@ -164,7 +164,7 @@ class CreditCard extends \MvcCore\Ext\Forms\Validator
 	 * @param \string[] $allowedTypes,... Allowed credit card types from `\MvcCore\Ext\Forms\Validators\CreditCard::$cardTypes`.
 	 * @return \MvcCore\Ext\Forms\Validators\CreditCard
 	 */
-	public function & SetAllowedTypes (/*...$allowedTypes*/) {
+	public function SetAllowedTypes (/*...$allowedTypes*/) {
 		$this->allowedTypes = [];
 		foreach (func_get_args() as $allowedType) 
 			$this->AddAllowedType($allowedType);
@@ -178,7 +178,7 @@ class CreditCard extends \MvcCore\Ext\Forms\Validator
 	 * @param \string[] $allowedTypes,... Allowed credit card types from `\MvcCore\Ext\Forms\Validators\CreditCard::$cardTypes`.
 	 * @return \MvcCore\Ext\Forms\Validators\CreditCard
 	 */
-	public function & AddAllowedTypes (/*...$allowedTypes*/) {
+	public function AddAllowedTypes (/*...$allowedTypes*/) {
 		foreach (func_get_args() as $allowedType) 
 			$this->AddAllowedType($allowedType);
 		return $this;
@@ -191,7 +191,7 @@ class CreditCard extends \MvcCore\Ext\Forms\Validator
 	 * @param string $allowedType Allowed credit card type from `\MvcCore\Ext\Forms\Validators\CreditCard::$cardTypes`.
 	 * @return \MvcCore\Ext\Forms\Validators\CreditCard
 	 */
-	public function & AddAllowedType ($allowedType) {
+	public function AddAllowedType ($allowedType) {
 		if (in_array($allowedType, static::$cardTypes)) {
 			$this->allowedTypes[] = $allowedType;
 		} else {
@@ -229,7 +229,7 @@ class CreditCard extends \MvcCore\Ext\Forms\Validator
 	 * @param \callable[] $externalValidationCallbacks,... `callable`(s) accepting as first argument raw user input, second argument as `\MvcCore\Ext\forms\IField` instance and third argument configured allowed credit card types strings array (if empty array, all types allowed). `callable` has to return safe user input value or `NULL` if value is not allowed.
 	 * @return \MvcCore\Ext\Forms\Validators\CreditCard
 	 */
-	public function & SetExternalValidationCallbacks (/*...$externalValidationCallbacks*/) {
+	public function SetExternalValidationCallbacks (/*...$externalValidationCallbacks*/) {
 		$this->externalValidationCallbacks = [];
 		foreach (func_get_args() as $externalValidationCallback) 
 			$this->AddExternalValidationCallback($externalValidationCallback, NULL);
@@ -247,7 +247,7 @@ class CreditCard extends \MvcCore\Ext\Forms\Validator
 	 * @param \callable[] $externalValidationCallbacks,... `callable`(s) accepting as first argument raw user input, second argument as `\MvcCore\Ext\forms\IField` instance and third argument configured allowed credit card types strings array (if empty array, all types allowed). `callable` has to return safe user input value or `NULL` if value is not allowed.
 	 * @return \MvcCore\Ext\Forms\Validators\CreditCard
 	 */
-	public function & AddExternalValidationCallbacks (/*...$externalValidationCallbacks*/) {
+	public function AddExternalValidationCallbacks (/*...$externalValidationCallbacks*/) {
 		foreach (func_get_args() as $externalValidationCallback) 
 			$this->AddExternalValidationCallback($externalValidationCallback, NULL);
 		return $this;
@@ -265,7 +265,7 @@ class CreditCard extends \MvcCore\Ext\Forms\Validator
 	 * @param int|NULL $priorityIndex Default value is `NULL`.
 	 * @return \MvcCore\Ext\Forms\Validators\CreditCard
 	 */
-	public function & AddExternalValidationCallback ($externalValidationCallback, $priorityIndex = NULL) {
+	public function AddExternalValidationCallback ($externalValidationCallback, $priorityIndex = NULL) {
 		if (is_callable($externalValidationCallback)) {
 			if ($priorityIndex !== NULL) {
 				if (isset($this->externalValidationCallbacks[$priorityIndex])) {
