@@ -7,8 +7,8 @@
  * For the full copyright and license information, please view 
  * the LICENSE.md file that are distributed with this source code.
  *
- * @copyright	Copyright (c) 2016 Tom Flídr (https://github.com/mvccore/mvccore)
- * @license		https://mvccore.github.io/docs/mvccore/4.0.0/LICENCE.md
+ * @copyright	Copyright (c) 2016 Tom Flidr (https://github.com/mvccore)
+ * @license		https://mvccore.github.io/docs/mvccore/5.0.0/LICENCE.md
  */
 
 namespace MvcCore\Ext\Forms\Validators;
@@ -21,8 +21,8 @@ namespace MvcCore\Ext\Forms\Validators;
  *					  APPLICATION HAS TO BE ONLINE when submitting your forms!
  * @see http://ec.europa.eu/taxation_customs/vies/
  */
-class CompanyVatIdEu extends \MvcCore\Ext\Forms\Validator
-{
+class CompanyVatIdEu extends \MvcCore\Ext\Forms\Validator {
+
 	/**
 	 * Main SOAP URL to EU VEIS system.
 	 * @see http://ec.europa.eu/taxation_customs/vies/
