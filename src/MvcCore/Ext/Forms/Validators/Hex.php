@@ -17,6 +17,7 @@ namespace MvcCore\Ext\Forms\Validators;
  * Responsibility: Validate if submitted characters representing a hexadecimal digit.
  * @see http://php.net/manual/en/function.ctype-xdigit.php
  */
+#[\Attribute(\Attribute::TARGET_PROPERTY)]
 class Hex extends \MvcCore\Ext\Forms\Validator {
 
 	/**

@@ -17,6 +17,7 @@ namespace MvcCore\Ext\Forms\Validators;
  * Responsibility: Validate if a submitted value is an IP address. It supports 
  *				   the IPv4, IPv6 and IPvFeature definitions.
  */
+#[\Attribute(\Attribute::TARGET_PROPERTY)]
 class Ip extends \MvcCore\Ext\Forms\Validator {
 
 	/**

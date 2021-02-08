@@ -21,6 +21,7 @@ namespace MvcCore\Ext\Forms\Validators;
  *					  APPLICATION HAS TO BE ONLINE when submitting your forms!
  * @see http://ec.europa.eu/taxation_customs/vies/
  */
+#[\Attribute(\Attribute::TARGET_PROPERTY)]
 class CompanyVatIdEu extends \MvcCore\Ext\Forms\Validator {
 
 	/**

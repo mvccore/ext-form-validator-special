@@ -25,6 +25,7 @@ namespace MvcCore\Ext\Forms\Validators;
  *				   number. It also provides an ability to attach callbacks with 
  *				   custom validations.
  */
+#[\Attribute(\Attribute::TARGET_PROPERTY)]
 class CreditCard extends \MvcCore\Ext\Forms\Validator {
 
 	/**

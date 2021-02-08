@@ -18,6 +18,7 @@ namespace MvcCore\Ext\Forms\Validators;
  * @see https://github.com/zendframework/zend-i18n
  * @see https://github.com/zendframework/zend-i18n/blob/master/src/Validator/PostCode.php
  */
+#[\Attribute(\Attribute::TARGET_PROPERTY)]
 class ZipCode extends \MvcCore\Ext\Forms\Validator {
 
 	/**

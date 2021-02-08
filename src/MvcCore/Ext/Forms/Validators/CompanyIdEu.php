@@ -24,6 +24,7 @@ namespace MvcCore\Ext\Forms\Validators;
  * @see http://studylib.net/doc/7254793/vat-number-construction-rules
  * @see http://85.81.229.78/systems/DKVIES/-%20Arkiv/Algoritme%E6ndringer/VIES-VAT%20Validation%20Routines-v15.0.doc
  */
+#[\Attribute(\Attribute::TARGET_PROPERTY)]
 class CompanyIdEu extends \MvcCore\Ext\Forms\Validator {
 
 	/**
