@@ -15,11 +15,11 @@ namespace MvcCore\Ext\Forms\Validators;
 
 /**
  * Responsibility: Validate company ID for EU states by regular expression(s)
- *				   or by closure function(s).
- *				    - DO NOT USE ANY ADVANCED CONSTRUCTIONS for validations,
- *				      because there are lot of checking exceptions!
- *					- Return from `Validate()` function safe submitted value or
- *					  `NULL` if there is not possible to return safe value.
+ *                 or by closure function(s).
+ *                  - DO NOT USE ANY ADVANCED CONSTRUCTIONS for validations,
+ *                    because there are lot of checking exceptions!
+ *                  - Return from `Validate()` function safe submitted value or
+ *                    `NULL` if there is not possible to return safe value.
  * @see https://en.wikipedia.org/wiki/VAT_identification_number
  * @see http://studylib.net/doc/7254793/vat-number-construction-rules
  * @see http://85.81.229.78/systems/DKVIES/-%20Arkiv/Algoritme%E6ndringer/VIES-VAT%20Validation%20Routines-v15.0.doc
@@ -66,8 +66,8 @@ class CompanyIdEu extends \MvcCore\Ext\Forms\Validator {
 	 * It could be regular expression match pattern string without border characters (`#^$/`)
 	 * or `callable` accepting first argument to be raw submitted value and
 	 * returning array with success and with safe company ID value.
-	 * @param string $localeCode Locale code, automatically converted to upper case.
-	 * @param string|callable $regExpMatchOrCallable Reg exp match pattern string with or without border characters or `callable`.
+	 * @param  string          $localeCode            Locale code, automatically converted to upper case.
+	 * @param  string|callable $regExpMatchOrCallable Reg exp match pattern string with or without border characters or `callable`.
 	 * @return string|callable
 	 */
 	public static function SetValidator ($localeCode, $regExpMatchOrCallable) {
@@ -151,7 +151,7 @@ class CompanyIdEu extends \MvcCore\Ext\Forms\Validator {
 
 	/**
 	 * Validate company ID by regular expression(s) or by closure function.
-	 * @param string|array $rawSubmittedValueraw submitted value
+	 * @param  string|array $rawSubmittedValueraw submitted value
 	 * @return mixed
 	 */
 
@@ -159,8 +159,8 @@ class CompanyIdEu extends \MvcCore\Ext\Forms\Validator {
 	 * Validate company ID for EU states by regular expression(s) or by closure function.
 	 * Do not use any advanced constructions for validations, because there are lot of checking exceptions.
 	 * Return safe submitted value as result or `NULL` if there is not possible to return safe valid value.
-	 * @param string|array			$submitValue	Raw submitted value, string or array of strings.
-	 * @return string|array|NULL	Safe submitted value or `NULL` if not possible to return safe value.
+	 * @param  string|array      $rawSubmittedValue	Raw submitted value, string or array of strings.
+	 * @return string|array|NULL Safe submitted value or `NULL` if not possible to return safe value.
 	 */
 	public function Validate ($rawSubmittedValue) {
 		$result = NULL;
@@ -214,9 +214,9 @@ class CompanyIdEu extends \MvcCore\Ext\Forms\Validator {
 
 	/**
 	 * Validate company ID by regular expression match pattern. Return if matches and safe company id value.
-	 * @param string $submittedValue Raw submitted value.
-	 * @param string $regExpMatch Regep match pattern without border characters (`#^$/`).
-	 * @param string $localeCode Form locale upper case code.
+	 * @param  string $submittedValue Raw submitted value.
+	 * @param  string $regExpMatch    Regep match pattern without border characters (`#^$/`).
+	 * @param  string $localeCode     Form locale upper case code.
 	 * @return array Array with success and safe company id value.
 	 */
 	protected function validateCompanyIdByRegExp ($submittedValue, $regExpMatch, $localeCode) {

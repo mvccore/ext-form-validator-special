@@ -15,15 +15,15 @@ namespace MvcCore\Ext\Forms\Validators;
 
 /**
  * Responsibility: Validate well-formed credit card number from American Express, 
- *				   Unionpay, Diners Club, Diners Club US, Discover, JCB, Laser, 
- *				   Maestro, Mastercard, Solo, Visa and Mir. 
- *				   Credit card contains several items of metadata, including 
- *				   a hologram, account number, logo, expiration date, security 
- *				   code and the card holder name. The algorithms for verifying 
- *				   the combination of metadata are only known to the issuing 
- *				   company, this validator is only for well-formed credit card 
- *				   number. It also provides an ability to attach callbacks with 
- *				   custom validations.
+ *                 Unionpay, Diners Club, Diners Club US, Discover, JCB, Laser, 
+ *                 Maestro, Mastercard, Solo, Visa and Mir. 
+ *                 Credit card contains several items of metadata, including 
+ *                 a hologram, account number, logo, expiration date, security 
+ *                 code and the card holder name. The algorithms for verifying 
+ *                 the combination of metadata are only known to the issuing 
+ *                 company, this validator is only for well-formed credit card 
+ *                 number. It also provides an ability to attach callbacks with 
+ *                 custom validations.
  */
 #[\Attribute(\Attribute::TARGET_PROPERTY)]
 class CreditCard extends \MvcCore\Ext\Forms\Validator {
@@ -162,7 +162,7 @@ class CreditCard extends \MvcCore\Ext\Forms\Validator {
 	 * This function is dangerous, because it removes all previously defined credit card types to allow.
 	 * If you only add another credit card type, use: `$validator->AddAllowedTypes();` instead.
 	 * Example: `$validator->SetAllowedTypes(\MvcCore\Ext\Forms\Validators\CreditCard::VISA, ...);`
-	 * @param \string[] $allowedTypes,... Allowed credit card types from `\MvcCore\Ext\Forms\Validators\CreditCard::$cardTypes`.
+	 * @param  \string[] $allowedTypes,... Allowed credit card types from `\MvcCore\Ext\Forms\Validators\CreditCard::$cardTypes`.
 	 * @return \MvcCore\Ext\Forms\Validators\CreditCard
 	 */
 	public function SetAllowedTypes (/*...$allowedTypes*/) {
@@ -176,7 +176,7 @@ class CreditCard extends \MvcCore\Ext\Forms\Validator {
 	 * Add multiple allowed credit card types. If no allowed credit card types defined, 
 	 * then all credit card types are allowed automatically.
 	 * Example: `$validator->AddAllowedTypes(\MvcCore\Ext\Forms\Validators\CreditCard::VISA, ...);`
-	 * @param \string[] $allowedTypes,... Allowed credit card types from `\MvcCore\Ext\Forms\Validators\CreditCard::$cardTypes`.
+	 * @param  \string[] $allowedTypes,... Allowed credit card types from `\MvcCore\Ext\Forms\Validators\CreditCard::$cardTypes`.
 	 * @return \MvcCore\Ext\Forms\Validators\CreditCard
 	 */
 	public function AddAllowedTypes (/*...$allowedTypes*/) {
@@ -189,7 +189,7 @@ class CreditCard extends \MvcCore\Ext\Forms\Validator {
 	 * Add allowed credit card type. If no allowed credit card types defined, 
 	 * then all credit card types are allowed automatically.
 	 * Example: `$validator->AddAllowedType(\MvcCore\Ext\Forms\Validators\CreditCard::VISA);`
-	 * @param string $allowedType Allowed credit card type from `\MvcCore\Ext\Forms\Validators\CreditCard::$cardTypes`.
+	 * @param  string $allowedType Allowed credit card type from `\MvcCore\Ext\Forms\Validators\CreditCard::$cardTypes`.
 	 * @return \MvcCore\Ext\Forms\Validators\CreditCard
 	 */
 	public function AddAllowedType ($allowedType) {
@@ -227,7 +227,7 @@ class CreditCard extends \MvcCore\Ext\Forms\Validator {
 	 * instance and third argument configured allowed credit card types strings array 
 	 * (if empty array, all types allowed). `Callable` has to return safe 
 	 * user input value or `NULL` if value is not allowed.
-	 * @param \callable[] $externalValidationCallbacks,... `callable`(s) accepting as first argument raw user input, second argument as `\MvcCore\Ext\forms\IField` instance and third argument configured allowed credit card types strings array (if empty array, all types allowed). `callable` has to return safe user input value or `NULL` if value is not allowed.
+	 * @param  \callable[] $externalValidationCallbacks,... `callable`(s) accepting as first argument raw user input, second argument as `\MvcCore\Ext\forms\IField` instance and third argument configured allowed credit card types strings array (if empty array, all types allowed). `callable` has to return safe user input value or `NULL` if value is not allowed.
 	 * @return \MvcCore\Ext\Forms\Validators\CreditCard
 	 */
 	public function SetExternalValidationCallbacks (/*...$externalValidationCallbacks*/) {
@@ -245,7 +245,7 @@ class CreditCard extends \MvcCore\Ext\Forms\Validator {
 	 * instance and third argument configured allowed credit card types strings array 
 	 * (if empty array, all types allowed). `Callable` has to return safe 
 	 * user input value or `NULL` if value is not allowed.
-	 * @param \callable[] $externalValidationCallbacks,... `callable`(s) accepting as first argument raw user input, second argument as `\MvcCore\Ext\forms\IField` instance and third argument configured allowed credit card types strings array (if empty array, all types allowed). `callable` has to return safe user input value or `NULL` if value is not allowed.
+	 * @param  \callable[] $externalValidationCallbacks,... `callable`(s) accepting as first argument raw user input, second argument as `\MvcCore\Ext\forms\IField` instance and third argument configured allowed credit card types strings array (if empty array, all types allowed). `callable` has to return safe user input value or `NULL` if value is not allowed.
 	 * @return \MvcCore\Ext\Forms\Validators\CreditCard
 	 */
 	public function AddExternalValidationCallbacks (/*...$externalValidationCallbacks*/) {
@@ -262,8 +262,8 @@ class CreditCard extends \MvcCore\Ext\Forms\Validator {
 	 * argument configured allowed credit card types strings array 
 	 * (if empty array, all types allowed). `Callable` has to return safe 
 	 * user input value or `NULL` if value is not allowed.
-	 * @param \callable[] $externalValidationCallback `Callable accepting as first argument raw user input, second argument as `\MvcCore\Ext\forms\IField` instance and third argument configured allowed credit card types strings array (if empty array, all types allowed). `Callable` has to return safe user input value or `NULL` if value is not allowed.
-	 * @param int|NULL $priorityIndex Default value is `NULL`.
+	 * @param  \callable[] $externalValidationCallback `Callable accepting as first argument raw user input, second argument as `\MvcCore\Ext\forms\IField` instance and third argument configured allowed credit card types strings array (if empty array, all types allowed). `Callable` has to return safe user input value or `NULL` if value is not allowed.
+	 * @param  int|NULL $priorityIndex                 Default value is `NULL`.
 	 * @return \MvcCore\Ext\Forms\Validators\CreditCard
 	 */
 	public function AddExternalValidationCallback ($externalValidationCallback, $priorityIndex = NULL) {
@@ -288,8 +288,8 @@ class CreditCard extends \MvcCore\Ext\Forms\Validator {
 	/**
 	 * Returns valid credit card number as string if and only if 
 	 * `$rawSubmittedValue` follows the Luhn algorithm (mod-10 checksum).
-	 * @param string|array $rawSubmittedValue Raw submitted value from user.
-	 * @return string|NULL Safe submitted value or `NULL` if not possible to return safe value.
+	 * @param  string|array $rawSubmittedValue Raw submitted value from user.
+	 * @return string|NULL  Safe submitted value or `NULL` if not possible to return safe value.
 	 */
 	public function Validate ($rawSubmittedValue) {
 		$rawSubmittedValue = (string) $rawSubmittedValue;

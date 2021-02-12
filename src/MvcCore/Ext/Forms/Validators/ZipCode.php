@@ -53,8 +53,8 @@ class ZipCode extends \MvcCore\Ext\Forms\Validator {
 	 * It could be `regexp match pattern string` without border characters (`#^$/`)
 	 * or `callable` accepting first argument to be raw submitted value and 
 	 * returning array with success and with safe ZIP code value.
-	 * @param string $localeCode Locale code, automatically converted to upper case.
-	 * @param string|callable $regExpMatchOrCallable `Regexp match pattern string` without border characters (`#^$/`) or `callable`.
+	 * @param  string          $localeCode            Locale code, automatically converted to upper case.
+	 * @param  string|callable $regExpMatchOrCallable `Regexp match pattern string` without border characters (`#^$/`) or `callable`.
 	 * @return string|callable
 	 */
 	public static function SetValidator ($localeCode, $regExpMatchOrCallable) {
@@ -240,8 +240,8 @@ class ZipCode extends \MvcCore\Ext\Forms\Validator {
 
 	/**
 	 * Validate ZIP code by form internal localization property `$form->GetLocale()`.
-  * @param string|array $rawSubmittedValue Raw submitted value from user.
-	 * @return string|NULL Safe submitted value or `NULL` if not possible to return safe value.
+	 * @param  string|array $rawSubmittedValue Raw submitted value from user.
+	 * @return string|NULL  Safe submitted value or `NULL` if not possible to return safe value.
 	 */
 	public function Validate ($rawSubmittedValue) {
 		$rawSubmittedValue = trim((string) $rawSubmittedValue);
@@ -286,9 +286,9 @@ class ZipCode extends \MvcCore\Ext\Forms\Validator {
 
 	/**
 	 * Validate ZIP code by regular expression match pattern. Return if matches and safe ZIP code value.
-	 * @param string $zip Raw submitted value.
-	 * @param string $regExpMatch Regep match pattern without border characters (`#^$/`).
-	 * @param string $localeCode Form locale upper case code.
+	 * @param  string $zip         Raw submitted value.
+	 * @param  string $regExpMatch Regep match pattern without border characters (`#^$/`).
+	 * @param  string $localeCode  Form locale upper case code.
 	 * @return array Array with success and safe ZIP code value.
 	 */
 	protected function validateZipByRegExp ($zip, $regExpMatch, $localeCode) {

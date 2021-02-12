@@ -15,7 +15,7 @@ namespace MvcCore\Ext\Forms\Validators;
 
 /**
  * Responsibility: Validate if a submitted value is an IBAN number. IBAN is the 
- *				   abbreviation for "International Bank Account Number".
+ *                 abbreviation for "International Bank Account Number".
  */
 #[\Attribute(\Attribute::TARGET_PROPERTY)]
 class Iban extends \MvcCore\Ext\Forms\Validator {
@@ -128,8 +128,8 @@ class Iban extends \MvcCore\Ext\Forms\Validator {
 
 	/**
 	 * Validate IBAN bank account number format from raw user input. 
-	 * @param string|array			$submitValue Raw user input.
-	 * @return string|array|NULL	Safe submitted value or `NULL` if not possible to return safe value.
+	 * @param  string|array      $rawSubmittedValue Raw user input.
+	 * @return string|array|NULL Safe submitted value or `NULL` if not possible to return safe value.
 	 */
 	public function Validate ($rawSubmittedValue) {
 		$result = NULL;

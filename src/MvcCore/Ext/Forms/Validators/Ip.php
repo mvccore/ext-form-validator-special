@@ -15,7 +15,7 @@ namespace MvcCore\Ext\Forms\Validators;
 
 /**
  * Responsibility: Validate if a submitted value is an IP address. It supports 
- *				   the IPv4, IPv6 and IPvFeature definitions.
+ *                 the IPv4, IPv6 and IPvFeature definitions.
  */
 #[\Attribute(\Attribute::TARGET_PROPERTY)]
 class Ip extends \MvcCore\Ext\Forms\Validator {
@@ -82,7 +82,7 @@ class Ip extends \MvcCore\Ext\Forms\Validator {
 	/**
 	 * Set `TRUE` to allow IPv4 address validation in octet format.
 	 * Octet format is `0-255.0-255.0-255.0-255`. Default value is `TRUE`.
-	 * @param bool $allowIPv4OctetFormat
+	 * @param  bool $allowIPv4OctetFormat
 	 * @return \MvcCore\Ext\Forms\Validators\Ip
 	 */
 	public function SetAllowIPv4OctetFormat ($allowIPv4OctetFormat = TRUE) {
@@ -102,7 +102,7 @@ class Ip extends \MvcCore\Ext\Forms\Validator {
 	/**
 	 * Set `TRUE` to allow IPv4 address validation in hexadecimal format.
 	 * Hexadecimal format is `00-FF.00-FF.00-FF.00-FF`. Default value is `FALSE`.
-	 * @param bool $allowIPv4HexFormat
+	 * @param  bool $allowIPv4HexFormat
 	 * @return \MvcCore\Ext\Forms\Validators\Ip
 	 */
 	public function SetAllowIPv4HexFormat ($allowIPv4HexFormat = TRUE) {
@@ -124,7 +124,7 @@ class Ip extends \MvcCore\Ext\Forms\Validator {
 	 * Set `TRUE` to allow IPv4 address validation in binary format.Binary format is:
 	 * `00000000-11111111.00000000-11111111.00000000-11111111.00000000-11111111`. 
 	 * Default value is `FALSE`.
-	 * @param bool $allowIPv4BinaryFormat
+	 * @param  bool $allowIPv4BinaryFormat
 	 * @return \MvcCore\Ext\Forms\Validators\Ip
 	 */
 	public function SetAllowIPv4BinaryFormat ($allowIPv4BinaryFormat = TRUE) {
@@ -144,7 +144,7 @@ class Ip extends \MvcCore\Ext\Forms\Validator {
 	/**
 	 * Set `TRUE` to allow IPv6 validation.
 	 * Default value is `TRUE`.
-	 * @param bool $allowIPv6
+	 * @param  bool $allowIPv6
 	 * @return \MvcCore\Ext\Forms\Validators\Ip
 	 */
 	public function SetAllowIPv6 ($allowIPv6 = TRUE) {
@@ -166,7 +166,7 @@ class Ip extends \MvcCore\Ext\Forms\Validator {
 	 * Set `TRUE` to allow literals in IPV6 validation.
 	 * Default value is `FALSE`.
 	 * @see https://en.wikipedia.org/wiki/IPv6_address#Literal_IPv6_addresses_in_network_resource_identifiers
-	 * @param bool $allowIPv6Literals
+	 * @param  bool $allowIPv6Literals
 	 * @return \MvcCore\Ext\Forms\Validators\Ip
 	 */
 	public function SetAllowIPv6Literals ($allowIPv6Literals = TRUE) {
@@ -176,8 +176,8 @@ class Ip extends \MvcCore\Ext\Forms\Validator {
 
 	/**
 	 * Validate raw user input with maximum string length check.
-	 * @param string|array $submitValue Raw submitted value from user.
-	 * @return string|NULL Safe submitted value or `NULL` if not possible to return safe value.
+	 * @param  string|array $rawSubmittedValue Raw submitted value from user.
+	 * @return string|NULL  Safe submitted value or `NULL` if not possible to return safe value.
 	 */
 	public function Validate ($rawSubmittedValue) {
 		$result = NULL;
@@ -217,7 +217,7 @@ class Ip extends \MvcCore\Ext\Forms\Validator {
 
 	/**
 	 * Validate IPv4 address format.
-	 * @param string $rawSubmittedValue 
+	 * @param  string $rawSubmittedValue 
 	 * @return string|NULL
 	 */
 	protected function validateIPv4 ($rawSubmittedValue) {
@@ -251,7 +251,7 @@ class Ip extends \MvcCore\Ext\Forms\Validator {
 
 	/**
 	 * Validate IPv6 address format.
-	 * @param string $rawSubmittedValue 
+	 * @param  string $rawSubmittedValue 
 	 * @return string|NULL
 	 */
 	protected function validateIPv6 ($rawSubmittedValue) {

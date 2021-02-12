@@ -16,9 +16,9 @@ namespace MvcCore\Ext\Forms\Validators;
 
 /**
  * Responsibility: Validate company VAT ID for EU states by requesting VEIS EU 
- *				   system by SOAP (or by GET if SOAP not implemented).
- *					- This class adds dependence on your application - 
- *					  APPLICATION HAS TO BE ONLINE when submitting your forms!
+ *                 system by SOAP (or by GET if SOAP not implemented).
+ *                 - This class adds dependence on your application - 
+ *                   APPLICATION HAS TO BE ONLINE when submitting your forms!
  * @see http://ec.europa.eu/taxation_customs/vies/
  */
 #[\Attribute(\Attribute::TARGET_PROPERTY)]
@@ -56,8 +56,8 @@ class CompanyVatIdEu extends \MvcCore\Ext\Forms\Validator {
 	 * Validate ZIP code by form internal localization property `$form->GetLocale()`.
 	 * Validate EU company VAT ID by form internal localization property `$form->GetLocale()`
 	 * and by SOAP or GET response from VIES system.
-	 * @param string|array $rawSubmittedValue Raw submitted value from user.
-	 * @return string|NULL Safe submitted value or `NULL` if not possible to return safe value.
+	 * @param  string|array $rawSubmittedValue Raw submitted value from user.
+	 * @return string|NULL  Safe submitted value or `NULL` if not possible to return safe value.
 	 */
 	public function Validate ($rawSubmittedValue) {
 		$formLocale = $this->form->GetLocale();
@@ -84,8 +84,8 @@ class CompanyVatIdEu extends \MvcCore\Ext\Forms\Validator {
 	 * Decode if to validate by SOAP or by GET, SOAP is more confident source.
 	 * If you want to assign values into another form fields by SOAP or GET response,
 	 * you can extend this class and this method to do it.
-	 * @param string $localeCode 
-	 * @param string $notCheckedValue 
+	 * @param  string $localeCode 
+	 * @param  string $notCheckedValue 
 	 * @return string|NULL
 	 */
 	protected function checkEuVatNumber ($localeCode, $notCheckedValue) {
@@ -103,8 +103,8 @@ class CompanyVatIdEu extends \MvcCore\Ext\Forms\Validator {
 	/**
 	 * Request VEIS by SOAP and get company info as `\stdClass` with: 
 	 * `countryCode`, `vatNumber`, `name` and `address`.
-	 * @param string $localeCode 
-	 * @param string $notCheckedValue 
+	 * @param  string $localeCode 
+	 * @param  string $notCheckedValue 
 	 * @return \stdClass|NULL
 	 */
 	protected function checkEuVatNumberBySoap ($localeCode, $notCheckedValue) {
@@ -130,8 +130,8 @@ class CompanyVatIdEu extends \MvcCore\Ext\Forms\Validator {
 	/**
 	 * Request VEIS by GET, parse HTML response and get company info as `\stdClass` with: 
 	 * `countryCode`, `vatNumber`, `name` and `address`.
-	 * @param string $localeCode 
-	 * @param string $notCheckedValue 
+	 * @param  string $localeCode 
+	 * @param  string $notCheckedValue 
 	 * @return \stdClass|NULL
 	 */
 	protected function checkEuVatNumberByGet ($localeCode, $notCheckedValue) {
