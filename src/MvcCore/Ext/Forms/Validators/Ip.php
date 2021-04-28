@@ -70,6 +70,41 @@ class Ip extends \MvcCore\Ext\Forms\Validator {
 	 */
 	protected $allowIPv6Literals = FALSE;
 
+	
+	/**
+	 * Create IP validator instance.
+	 * 
+	 * @param  array  $cfg
+	 * Config array with protected properties and it's 
+	 * values which you want to configure, presented 
+	 * in camel case properties names syntax.
+	 * 
+	 * @param  bool   $allowIPv4OctetFormat
+	 * Allow IPv4 validation in octet format. Default value is `TRUE`.
+	 * @param  bool   $allowIPv4HexFormat
+	 * Allow IPv4 validation in hexadecimal format. Default value is `FALSE`.
+	 * @param  bool   $allowIPv4BinaryFormat
+	 * Allow IPv4 validation in binary format. Default value is `FALSE`.
+	 * @param  bool   $allowIPv6
+	 * Allow IPv6 validation. Default value is `TRUE`.
+	 * @param  bool   $allowIPv6Literals
+	 * Allow IPV6 literals. Default value is `FALSE`.
+	 * 
+	 * @throws \InvalidArgumentException 
+	 * @return void
+	 */
+	public function __construct(
+		array $cfg = [],
+		$allowIPv4OctetFormat = NULL,
+		$allowIPv4HexFormat = NULL,
+		$allowIPv4BinaryFormat = NULL,
+		$allowIPv6 = NULL,
+		$allowIPv6Literals = NULL
+	) {
+		$this->consolidateCfg($cfg, func_get_args(), func_num_args());
+		parent::__construct($cfg);
+	}
+
 	/**
 	 * Get `TRUE`, if validation for IPv4 address is allowed in octet format.
 	 * Octet format is `0-255.0-255.0-255.0-255`. Default value is `TRUE`.

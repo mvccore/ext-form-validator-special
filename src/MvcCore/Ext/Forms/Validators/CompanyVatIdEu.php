@@ -110,7 +110,7 @@ class CompanyVatIdEu extends \MvcCore\Ext\Forms\Validator {
 	protected function checkEuVatNumberBySoap ($localeCode, $notCheckedValue) {
 		try {
 			$client = new \SoapClient(static::SOAP_URL, ['trace' => TRUE]);
-		} catch(Exception $e) {
+		} catch (\Throwable $e) {
 			$this->field->AddValidationError('VAT number validation SOAP error.');
 			return NULL;
 		}

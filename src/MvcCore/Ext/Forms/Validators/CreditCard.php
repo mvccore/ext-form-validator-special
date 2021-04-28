@@ -147,6 +147,40 @@ class CreditCard extends \MvcCore\Ext\Forms\Validator {
 	 */
 	protected $externalValidationCallbacks = [];
 
+	
+	/**
+	 * Create creadit card validator instance.
+	 * 
+	 * @param  array       $cfg
+	 * Config array with protected properties and it's 
+	 * values which you want to configure, presented 
+	 * in camel case properties names syntax.
+	 * 
+	 * @param  \string[]   $allowedTypes
+	 * Allowed credit card types. If no allowed credit card types defined, 
+	 * then all credit card types are allowed automatically.
+	 * Array of string constants like: `\MvcCore\Ext\Forms\Validators\CreditCard::VISA ...`.
+	 * @param  \callable[] $externalValidationCallbacks
+	 * List of external validation services defined as `callable`s.
+	 * Defined functions could be indexed by priority index.
+	 * Every `callable` item in array has to accept first argument
+	 * as raw user input string, second argument as `\MvcCore\Ext\forms\IField`
+	 * instance and third argument configured allowed credit card types strings array 
+	 * (if empty array, all types allowed). `Callable` has to return safe 
+	 * user input value or `NULL` if value is not allowed.
+	 * 
+	 * @throws \InvalidArgumentException 
+	 * @return void
+	 */
+	public function __construct(
+		array $cfg = [],
+		array $allowedTypes = [],
+		array $externalValidationCallbacks = []
+	) {
+		$this->consolidateCfg($cfg, func_get_args(), func_num_args());
+		parent::__construct($cfg);
+	}
+
 	/**
 	 * Get allowed credit card types. If no allowed credit card types defined, 
 	 * then all credit card types are allowed automatically.

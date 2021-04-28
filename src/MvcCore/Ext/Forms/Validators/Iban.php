@@ -108,6 +108,29 @@ class Iban extends \MvcCore\Ext\Forms\Validator {
 		'VG' => 'VG[0-9]{2}[A-Z]{4}[0-9]{16}',
 	];
 
+
+	/**
+	 * Create IBAN validator instance.
+	 * 
+	 * @param  array  $cfg
+	 * Config array with protected properties and it's 
+	 * values which you want to configure, presented 
+	 * in camel case properties names syntax.
+	 * 
+	 * @param  bool   $allowNonSepa
+	 * Optionally allow IBAN codes from non-SEPA countries. Defaults to `TRUE`.
+	 * 
+	 * @throws \InvalidArgumentException 
+	 * @return void
+	 */
+	public function __construct(
+		array $cfg = [],
+		$allowNonSepa = NULL
+	) {
+		$this->consolidateCfg($cfg, func_get_args(), func_num_args());
+		parent::__construct($cfg);
+	}
+
 	/**
 	 * Returns the optional allow non-sepa countries setting.
 	 * @return bool
