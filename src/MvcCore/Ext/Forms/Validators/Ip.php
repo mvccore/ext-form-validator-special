@@ -24,14 +24,25 @@ class Ip extends \MvcCore\Ext\Forms\Validator {
 	 * Error message index(es).
 	 * @var int
 	 */
-	const ERROR_IP = 0;
+	const
+		ERROR_IP			= 0,
+		ERROR_FORMATS		= 1,
+		ERROR_LITERALS		= 2,
+		ERROR_FORMAT_OCT	= 3,
+		ERROR_FORMAT_HEX	= 4,
+		ERROR_FORMAT_BIN	= 5;
 
 	/**
 	 * Validation failure message template definitions.
 	 * @var array
 	 */
 	protected static $errorMessages = [
-		self::ERROR_IP	=> "Field '{0}' requires a valid IP address. Allowed types: {1}.",
+		self::ERROR_IP			=> "Field '{0}' requires a valid IP address. Allowed types: {1}.",
+		self::ERROR_FORMATS		=> '(formats: {0})',
+		self::ERROR_LITERALS	=> '(with literals)',
+		self::ERROR_FORMAT_OCT	=> 'octet',
+		self::ERROR_FORMAT_HEX	=> 'hexadecimal',
+		self::ERROR_FORMAT_BIN	=> 'binary',
 	];
 
 	/**
@@ -216,30 +227,31 @@ class Ip extends \MvcCore\Ext\Forms\Validator {
 	 */
 	public function Validate ($rawSubmittedValue) {
 		$result = NULL;
-		$rawSubmittedValue = (string) $rawSubmittedValue;
+		$submittedValueStr = (string) $rawSubmittedValue;
 		$ipv4Allowed = $this->allowIPv4HexFormat || $this->allowIPv4OctetFormat || $this->allowIPv4BinaryFormat;
 		if ($ipv4Allowed) {
-			$result = $this->validateIPv4($rawSubmittedValue);
+			$result = $this->validateIPv4($submittedValueStr);
 			if ($result !== NULL) return $result;
 		}
 		if ($this->allowIPv6) {
 			if ($this->allowIPv6Literals) {
-				if (preg_match('/^\[(.*)\]$/', $rawSubmittedValue, $matches)) 
-					$rawSubmittedValue = $matches[1];
+				if (preg_match('/^\[(.*)\]$/', $submittedValueStr, $matches)) 
+					$submittedValueStr = $matches[1];
 			}
-			$result = $this->validateIPv6($rawSubmittedValue);
+			$result = $this->validateIPv6($submittedValueStr);
 			if ($result !== NULL) return $result;
 		}
-		if ($result === NULL) {
+		if ($result === NULL && $rawSubmittedValue !== NULL) {
 			$errorMsgAllowedTypes = [];
 			if ($ipv4Allowed) {
 				$ipv4AllowedFormats = [];
-				if ($this->allowIPv4OctetFormat)	$ipv4AllowedFormats[] = 'octet';
-				if ($this->allowIPv4HexFormat)		$ipv4AllowedFormats[] = 'hexadecimal';
-				if ($this->allowIPv4BinaryFormat)	$ipv4AllowedFormats[] = 'binary';
-				$errorMsgAllowedTypes[] = 'IPv4 (formats: ' . implode(', ', $ipv4AllowedFormats) . ')';
+				if ($this->allowIPv4OctetFormat)	$ipv4AllowedFormats[] = static::GetErrorMessage(static::ERROR_FORMAT_OCT);
+				if ($this->allowIPv4HexFormat)		$ipv4AllowedFormats[] = static::GetErrorMessage(static::ERROR_FORMAT_HEX);
+				if ($this->allowIPv4BinaryFormat)	$ipv4AllowedFormats[] = static::GetErrorMessage(static::ERROR_FORMAT_BIN);
+				$formatsErrorMsgPart = static::GetErrorMessage(static::ERROR_FORMATS);
+				$errorMsgAllowedTypes[] = 'IPv4 ' . str_replace('{0}', implode(', ', $ipv4AllowedFormats), $formatsErrorMsgPart);
 				if ($this->allowIPv6) 
-					$errorMsgAllowedTypes[] = 'IPv6' . ($this->allowIPv6Literals ? ' (with literals)' : '');
+					$errorMsgAllowedTypes[] = 'IPv6' . ($this->allowIPv6Literals ? ' ' . static::GetErrorMessage(static::ERROR_LITERALS) : '');
 				
 			}
 			$this->field->AddValidationError(
