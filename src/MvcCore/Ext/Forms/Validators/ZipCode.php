@@ -35,9 +35,9 @@ class ZipCode extends \MvcCore\Ext\Forms\Validator {
 	 * @var array
 	 */
 	protected static $errorMessages = [
-		self::ERROR_NOT_SUPPORTED			=> "Field '{0}' has not supported validation for ZIP code in locale: `{1}`.",
-		self::ERROR_VALIDATOR_WRONG_FORMAT	=> "Field '{0}' has ZIP code validator in locale `{1}` in wrong format.",
-		self::ERROR_WRONG_PATTERN			=> "Field '{0}' has wrong ZIP code validation pattern: `{1}`.",
+		self::ERROR_NOT_SUPPORTED			=> "Field '{0}' has not supported validation for ZIP code in locale: '{1}'.",
+		self::ERROR_VALIDATOR_WRONG_FORMAT	=> "Field '{0}' has ZIP code validator in locale '{1}' in wrong format.",
+		self::ERROR_WRONG_PATTERN			=> "Field '{0}' has wrong ZIP code validation pattern: '{1}'.",
 		self::ERROR_INVALID_ZIP				=> "Field '{0}' requires a valid zip code.",
 	];
 
