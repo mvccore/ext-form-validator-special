@@ -377,11 +377,6 @@ class CreditCard extends \MvcCore\Ext\Forms\Validator {
 						$this->field->AddValidationError(static::GetErrorMessage(self::ERROR_SERVICE));
 						return NULL;
 					}
-				} catch (\Exception $e) { // backward compatibility
-					$debugClass = \MvcCore\Application::GetInstance()->GetDebugClass();
-					$debugClass::Log($e, \MvcCore\IDebug::EXCEPTION);
-					$this->field->AddValidationError(static::GetErrorMessage(self::ERROR_SERVICEFAILURE));
-					return NULL;
 				} catch (\Throwable $e) {
 					$debugClass = \MvcCore\Application::GetInstance()->GetDebugClass();
 					$debugClass::Log($e, \MvcCore\IDebug::EXCEPTION);
